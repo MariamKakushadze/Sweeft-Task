@@ -1,29 +1,69 @@
-const FullUser = ({ id, name, lastName, prefix, title, imageUrl }) => {
+const FullUser = ({
+  job,
+  area,
+  type,
+  email,
+  ip,
+  zip,
+  city,
+  street,
+  country,
+  state,
+}) => {
   const settings = [
     {
       id: 1,
-      title: "Job Descpription:",
-      description: "blasdsdsddada",
+      title: "Job Description:",
+      description: job,
     },
     {
       id: 2,
       title: "Job Area:",
-      description: "bladdsdsada",
+      description: area,
     },
     {
       id: 3,
       title: "Job Type:",
-      description: "bladdsdsada",
+      description: type,
     },
     {
       id: 4,
       title: "Email:",
-      description: "1234@gmail.com",
+      description: email,
     },
     {
       id: 5,
       title: "IP Adrress:",
-      description: "12121212",
+      description: ip,
+    },
+    {
+      id: 6,
+      title: "Zip Code:",
+      description: zip,
+      city,
+      street,
+      country,
+      state,
+    },
+    {
+      id: 7,
+      title: "City:",
+      description: city,
+    },
+    {
+      id: 8,
+      title: "Street:",
+      description: street,
+    },
+    {
+      id: 9,
+      title: "Country:",
+      description: country,
+    },
+    {
+      id: 10,
+      title: "State:",
+      description: state,
     },
   ];
 
