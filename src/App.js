@@ -1,11 +1,13 @@
 import { HomePage, FullInfo } from "pages";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { React } from "react";
 
 function App() {
   return (
-    <div className="App">
-      {/* <HomePage /> */}
-      <FullInfo />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/:id" element={<FullInfo />} />
+    </Routes>
   );
 }
 
