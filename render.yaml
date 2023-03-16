@@ -1,0 +1,9 @@
+# render.yaml
+build:
+  # Set the Dockerfile path
+  dockerfile: Dockerfile
+  # Install dependencies
+  npm_install: true
+start:
+  # Start the application with npm
+  cmd: npm start
