@@ -1,4 +1,4 @@
-import Card from "./Card";
+import { Card } from "components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

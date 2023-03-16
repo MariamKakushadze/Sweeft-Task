@@ -1,5 +1,5 @@
 import { Header } from "components";
-import List from "../../components/Card/UserList";
+import { List } from "sections";
 
 const HomePage = () => {
   return (
