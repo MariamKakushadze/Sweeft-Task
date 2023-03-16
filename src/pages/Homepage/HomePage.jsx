@@ -1,10 +1,11 @@
-import { Header, Card } from "components";
+import { Header } from "components";
+import List from "../../components/Card/UserList";
 
 const HomePage = () => {
   return (
     <div>
       <Header />
-      <Card />
+      <List />
     </div>
   );
 };
