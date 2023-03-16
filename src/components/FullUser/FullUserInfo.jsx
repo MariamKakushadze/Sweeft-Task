@@ -70,15 +70,17 @@ const FullUser = ({
   return (
     <div
       className="flex flex-col gap-1
-      border rounded-md py-2 cursor-pointer hover:scale-110 "
+      border rounded-md py-2 cursor-pointer hover:scale-110 w-full md:p-8"
     >
       {settings.map((setting) => (
         <div
           key={setting.id}
           className="flex gap-1 ml-0 sm:max-w-[37.5 rem] min-w-[18.5 rem] px-2"
         >
-          <p className="font-normal text-xs">{setting.title}</p>
-          <span className="font-light text-xs">{setting.description}</span>
+          <p className="font-normal text-sm md:text-[16px]">{setting.title}</p>
+          <span className="font-light text-sm md:text-[16px]">
+            {setting.description}
+          </span>
         </div>
       ))}
     </div>
