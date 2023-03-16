@@ -34,7 +34,7 @@ const List = ({ apiUrl, setPage }) => {
   "
     >
       {users.map((user, i) => (
-        <Link key={i} to={`${user.id}`}>
+        <Link key={i} to={`/user/${user.id}`}>
           <Card
             name={user.name}
             lastName={user.lastName}
