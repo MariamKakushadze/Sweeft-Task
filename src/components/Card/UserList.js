@@ -18,6 +18,7 @@ const List = () => {
         setUsers((prevData) => [...prevData, ...data]);
         setPage((prevPage) => prevPage + 1);
         setLoading(false);
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -34,14 +35,15 @@ const List = () => {
       className="grid grid-cols-1 flex-col justify-center items-center gap-5 px-10 sm:grid-cols-2 xl:grid-cols-3
   "
     >
-      {users.map((user) => (
+      {users.map((user, i) => (
         <Card
-          key={user.id}
+          key={i}
           name={user.name}
           lastName={user.lastName}
           title={user.title}
           prefix={user.prefix}
           imageUrl={user.imageUrl}
+          id={user.id}
         />
       ))}
       {loading && <p>Loading...</p>}
