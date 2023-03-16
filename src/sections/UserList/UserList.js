@@ -1,4 +1,5 @@
 import { Card } from "components";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -36,15 +37,16 @@ const List = () => {
   "
     >
       {users.map((user, i) => (
-        <Card
-          key={i}
-          name={user.name}
-          lastName={user.lastName}
-          title={user.title}
-          prefix={user.prefix}
-          imageUrl={user.imageUrl}
-          id={user.id}
-        />
+        <Link key={i} to={`${user.id}`}>
+          <Card
+            name={user.name}
+            lastName={user.lastName}
+            title={user.title}
+            prefix={user.prefix}
+            imageUrl={user.imageUrl}
+            id={user.id}
+          />
+        </Link>
       ))}
       {loading && <p>Loading...</p>}
     </div>
