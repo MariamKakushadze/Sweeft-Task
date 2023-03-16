@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { FullUser } from "components";
+import { FullUser, BriefInfo } from "components";
 import { useParams } from "react-router-dom";
 
 const UserInfo = () => {
@@ -28,18 +28,29 @@ const UserInfo = () => {
     return <div>Loading...</div>;
   }
   return (
-    <FullUser
-      job={user.jobDescriptor}
-      area={user.jobArea}
-      type={user.jobType}
-      email={user.email}
-      ip={user.ip}
-      zip={user.address?.zipCode}
-      city={user.address?.city}
-      street={user.address?.streetAddress}
-      country={user.address?.country}
-      state={user.address?.state}
-    />
+    <div>
+      <BriefInfo
+        name={user.name}
+        lastName={user.lastName}
+        prefix={user.prefix}
+        title={user.title}
+        imageUrl={user.imageUrl}
+        company={user.company?.name}
+        suffix={user.company?.suffix}
+      />
+      <FullUser
+        job={user.jobDescriptor}
+        area={user.jobArea}
+        type={user.jobType}
+        email={user.email}
+        ip={user.ip}
+        zip={user.address?.zipCode}
+        city={user.address?.city}
+        street={user.address?.streetAddress}
+        country={user.address?.country}
+        state={user.address?.state}
+      />
+    </div>
   );
 };
 export default UserInfo;
