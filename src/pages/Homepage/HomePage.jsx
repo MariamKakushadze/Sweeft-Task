@@ -1,9 +1,10 @@
-import { Header } from "components";
+import { Header, Card } from "components";
 
 const HomePage = () => {
   return (
     <div>
       <Header />
+      <Card />
     </div>
   );
 };
