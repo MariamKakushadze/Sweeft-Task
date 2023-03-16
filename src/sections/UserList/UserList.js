@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const List = () => {
+const List = ({ apiUrl, setPage }) => {
   const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const fetchUsers = () => {
     setLoading(true);
     axios
-      .get(
-        `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${page}/30`
-      )
+      .get(`${apiUrl}`)
       .then((res) => {
         const data = res.data.list;
         setUsers((prevData) => [...prevData, ...data]);
