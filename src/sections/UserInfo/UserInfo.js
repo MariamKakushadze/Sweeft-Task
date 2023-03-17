@@ -57,7 +57,7 @@ const UserInfo = () => {
       <List
         page={page}
         setPage={setPage}
-        apiUrl={`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${page}/30`}
+        apiUrl={`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${page}/12`}
       />
     </div>
   );

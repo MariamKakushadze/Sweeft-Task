@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const List = ({ apiUrl, setPage }) => {
+const List = ({ apiUrl, setPage, page }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +14,7 @@ const List = ({ apiUrl, setPage }) => {
       .then((res) => {
         const data = res.data.list;
         setUsers((prevData) => [...prevData, ...data]);
-        setPage((prevPage) => prevPage + 1);
+        // setUsers(data);
         setLoading(false);
         console.log(data);
       })
@@ -26,7 +26,23 @@ const List = ({ apiUrl, setPage }) => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [page]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+
+      if (windowHeight + scrollTop >= scrollHeight) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setPage]);
 
   return (
     <div

@@ -10,7 +10,7 @@ const HomePage = () => {
       <List
         page={page}
         setPage={setPage}
-        apiUrl={`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${page}/30`}
+        apiUrl={`http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${page}/12`}
       />
     </div>
   );
