@@ -78,7 +78,7 @@ const FullUser = ({
           className="flex gap-1 ml-0 sm:max-w-[37.5 rem] min-w-[18.5 rem] px-2"
         >
           <p className="font-normal text-sm md:text-[16px]">{setting.title}</p>
-          <span className="font-light text-sm md:text-[16px]">
+          <span className="break-all font-light text-sm md:text-[16px]">
             {setting.description}
           </span>
         </div>
