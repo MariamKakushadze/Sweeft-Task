@@ -7,16 +7,21 @@ const List = ({ apiUrl, setPage, page }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  console.log("🚀 ~ file: UserList.js:8 ~ List ~ users:", users);
+
   const fetchUsers = () => {
     setLoading(true);
     axios
       .get(`${apiUrl}`)
       .then((res) => {
         const data = res.data.list;
-        setUsers((prevData) => [...prevData, ...data]);
-        // setUsers(data);
+        const newData = data.filter((user) => {
+          return !users.some((x) => x.id === user.id);
+        });
+        const uniqueData = [...new Set([...users, ...newData])];
+        setUsers(uniqueData);
         setLoading(false);
-        console.log(data);
+        console.log(newData);
       })
       .catch((error) => {
         console.log(error);
