@@ -9,25 +9,22 @@ const List = ({ apiUrl, setPage, page }) => {
 
   // console.log("🚀 ~ file: UserList.js:8 ~ List ~ users:", users);
 
-  const fetchUsers = () => {
+  const fetchUsers = async () => {
     setLoading(true);
-    axios
-      .get(`${apiUrl}`)
-      .then((res) => {
-        const data = res.data.list;
-        //filter same cards
-        const newData = data.filter((user) => {
-          return !users.some((x) => x.id === user.id);
-        });
-        const uniqueData = [...new Set([...users, ...newData])];
-        setUsers(uniqueData);
-        setLoading(false);
-        //console.log(newData);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
+    try {
+      const res = await axios.get(`${apiUrl}`);
+      const data = res.data.list;
+      //filter same cards
+      const newData = data.filter((user) => {
+        return !users.some((x) => x.id === user.id);
       });
+      const uniqueData = [...new Set([...users, ...newData])];
+      setUsers(uniqueData);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
