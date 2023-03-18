@@ -1,10 +1,5 @@
-import { useNavigate } from "react-router-dom";
-
 const Card = ({ id, name, lastName, prefix, title, imageUrl }) => {
-  const navigate = useNavigate();
-
   const handleClick = () => {
-    navigate("/user/:id");
     window.scrollTo(0, 0);
   };
   return (
